@@ -1,0 +1,43 @@
+<div class="slider" #sliderRef>
+  <div class="slider-area" [style.padding-top]="knobOneHeight + 'rem'">
+    <div
+      class="slider-between"
+      [style.height]="knobTwoHeight - knobOneHeight + 'rem'"
+    ></div>
+  </div>
+  <div class="slider-area">
+    <div class="slider-bg-area">
+      <div
+        [style.height]="(1 / stepsArray.length) * 100 + '%'"
+        class="steps"
+        *ngFor="let step of stepsArray; index as index"
+      >
+        <div>{{ (scale - index) * 10 + 90 }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="slider-area" [style.padding-top]="knobOneHeight + 'rem'">
+    <div
+      class="slider-knob slider-knob-first"
+      (mousedown)="firstKnobMouseDown($event)"
+    >
+      <!-- <div *ngIf="scale">FL{{ (scale - firstValue) * 10 + 100 }}</div> -->
+    </div>
+    <div
+      class="slider-knob-bobble slider-knob-first"
+      (mousedown)="firstKnobMouseDown($event)"
+    ></div>
+  </div>
+  <div class="slider-area" [style.padding-top]="knobTwoHeight + 'rem'">
+    <div
+      class="slider-knob slider-knob-last"
+      (mousedown)="secondKnobMouseDown($event)"
+    >
+      <!-- <div *ngIf="scale">FL{{ (scale - secondValue) * 10 + 100 }}</div> -->
+    </div>
+    <div
+      class="slider-knob-bobble slider-knob-last"
+      (mousedown)="secondKnobMouseDown($event)"
+    ></div>
+  </div>
+</div>
